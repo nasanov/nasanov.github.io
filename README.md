@@ -1,1 +1,0 @@
-# nasanov.github.io

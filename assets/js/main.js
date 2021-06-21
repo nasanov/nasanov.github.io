@@ -1,123 +1,101 @@
-/*
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+(function ($) {
+	'use strict';
 
-(function($) {
+	$(window).on('load', function () {
+		/*
+   MixitUp
+   ========================================================================== */
+		$('#portfolio').mixItUp();
 
-	var	$window = $(window),
-		$body = $('body'),
-		$nav = $('#nav');
-
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '961px',  '1880px' ],
-			normal:    [ '961px',  '1620px' ],
-			narrow:    [ '961px',  '1320px' ],
-			narrower:  [ '737px',  '960px'  ],
-			mobile:    [ null,     '736px'  ]
+		/*
+   One Page Navigation & wow js
+   ========================================================================== */
+		var OnePNav = $('.onepage-nev');
+		var top_offset = OnePNav.height() - -0;
+		OnePNav.onePageNav({
+			currentClass: 'active',
+			scrollOffset: top_offset,
 		});
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
+		/*Page Loader active
+    ========================================================*/
+		$('#preloader').fadeOut();
+
+		// Sticky Nav
+		$(window).on('scroll', function () {
+			if ($(window).scrollTop() > 200) {
+				$('.scrolling-navbar').addClass('top-nav-collapse');
+			} else {
+				$('.scrolling-navbar').removeClass('top-nav-collapse');
+			}
 		});
 
-	// Nav.
-		var $nav_a = $nav.find('a');
+		/* slicknav mobile menu active  */
+		$('.mobile-menu').slicknav({
+			prependTo: '.navbar-header',
+			parentTag: 'liner',
+			allowParentLinks: true,
+			duplicate: true,
+			label: '',
+			closedSymbol: '<i class="icon-arrow-right"></i>',
+			openedSymbol: '<i class="icon-arrow-down"></i>',
+		});
 
-		$nav_a
-			.addClass('scrolly')
-			.on('click', function(e) {
+		/* WOW Scroll Spy
+    ========================================================*/
+		var wow = new WOW({
+			//disabled for mobile
+			mobile: false,
+		});
 
-				var $this = $(this);
+		wow.init();
 
-				// External link? Bail.
-					if ($this.attr('href').charAt(0) != '#')
-						return;
+		/* Nivo Lightbox
+    ========================================================*/
+		$('.lightbox').nivoLightbox({
+			effect: 'fadeScale',
+			keyboardNav: true,
+		});
 
-				// Prevent default.
-					e.preventDefault();
+		/* Counter
+    ========================================================*/
+		$('.counterUp').counterUp({
+			delay: 10,
+			time: 1000,
+		});
 
-				// Deactivate all links.
-					$nav_a.removeClass('active');
+		/* Back Top Link active
+    ========================================================*/
+		var offset = 200;
+		var duration = 500;
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > offset) {
+				$('.back-to-top').fadeIn(400);
+			} else {
+				$('.back-to-top').fadeOut(400);
+			}
+		});
 
-				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-					$this
-						.addClass('active')
-						.addClass('active-locked');
+		$('.back-to-top').on('click', function (event) {
+			event.preventDefault();
+			$('html, body').animate(
+				{
+					scrollTop: 0,
+				},
+				600
+			);
+			return false;
+		});
 
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					id = $this.attr('href'),
-					$section = $(id);
-
-				// No section for this link? Bail.
-					if ($section.length < 1)
-						return;
-
-				// Scrollex.
-					$section.scrollex({
-						mode: 'middle',
-						top: '-10vh',
-						bottom: '-10vh',
-						initialize: function() {
-
-							// Deactivate section.
-								$section.addClass('inactive');
-
-						},
-						enter: function() {
-
-							// Activate section.
-								$section.removeClass('inactive');
-
-							// No locked links? Deactivate all links and activate this section's one.
-								if ($nav_a.filter('.active-locked').length == 0) {
-
-									$nav_a.removeClass('active');
-									$this.addClass('active');
-
-								}
-
-							// Otherwise, if this section's link is the one that's locked, unlock it.
-								else if ($this.hasClass('active-locked'))
-									$this.removeClass('active-locked');
-
-						}
-					});
-
-			});
-
-	// Scrolly.
-		$('.scrolly').scrolly();
-
-	// Header (narrower + mobile).
-
-		// Toggle.
-			$(
-				'<div id="headerToggle">' +
-					'<a href="#header" class="toggle"></a>' +
-				'</div>'
-			)
-				.appendTo($body);
-
-		// Header.
-			$('#header')
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'left',
-					target: $body,
-					visibleClass: 'header-visible'
-				});
-
+		/* Back Top Link active
+    ========================================================*/
+		var offset = 200;
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > offset) {
+				$('#darkmode-switch').fadeIn(400);
+			} else {
+				$('#darkmode-switch').fadeOut(400);
+			}
+		});
+	});
 })(jQuery);
