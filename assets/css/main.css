@@ -2,13 +2,13 @@
 
 :root {
 	--background-color: #fff;
+	--background-color-secondary: #f2f2f2;
 	--text-color: #666;
-	/* --primaryColor: #181a1b;
-	--links--active: #23b1ff;
-	--links: #c8c3bc;
-	--another__block: #202325;
-	--text--color: #a8a095;
-	--text--color-highlight: #e5e3cd; */
+	--skills-background: #f0f0f0;
+	--section-title: #252525;
+	--about-text-color: #040404;
+	--contact-form-shadow: #ededed;
+	--contact-form-background: #fff;
 }
 
 html {
@@ -116,7 +116,7 @@ ol li {
 }
 
 .section-title {
-	color: #252525;
+	color: var(--section-title);
 	font-size: 38px;
 	text-align: center;
 	letter-spacing: 1px;
@@ -356,7 +356,7 @@ a.back-to-top:focus {
 
 .about-profile .pro-title {
 	font-weight: 700;
-	color: #040404;
+	color: var(--about-text-color);
 	position: relative;
 	width: 120px;
 	display: inline-block;
@@ -366,7 +366,7 @@ a.back-to-top:focus {
 .about-profile .pro-title:after {
 	position: absolute;
 	content: ':';
-	color: #040404;
+	color: var(--about-text-color);
 	font-size: 14px;
 	left: 77px;
 }
@@ -440,7 +440,7 @@ a.back-to-top:focus {
 }
 
 .timeline li .content-text {
-	background: #f2f2f2;
+	background: var(--background-color-secondary);
 	padding: 20px;
 }
 
@@ -461,7 +461,7 @@ a.back-to-top:focus {
 }
 
 .timeline li:first-child:before {
-/* 	border: 0; */
+	/* 	border: 0; */
 	background: none;
 	position: relative;
 }
@@ -484,7 +484,7 @@ a.back-to-top:focus {
 	background: #fff;
 	display: block;
 	position: absolute;
-/* 	margin-top: 18px; */
+	/* 	margin-top: 18px; */
 	border-color: #00b4d9 !important;
 }
 
@@ -505,11 +505,13 @@ a.back-to-top:focus {
 .navbar-brand {
 	position: relative;
 	padding: 0px;
-	color: rgb(44, 44, 44);
+	/* color: rgb(44, 44, 44); */
+	color: var(--section-title);
 }
 
 .top-nav-collapse {
 	background: #fff;
+	background: var(--background-color);
 	z-index: 999999;
 	top: 0px !important;
 	min-height: 58px;
@@ -520,7 +522,7 @@ a.back-to-top:focus {
 	animation-fill-mode: both;
 	-webkit-animation-name: fadeInDown;
 	animation-name: fadeInDown;
-	background: #fff !important;
+	/* background: #fff !important; */
 }
 
 .top-nav-collapse .navbar-brand {
@@ -532,7 +534,8 @@ a.back-to-top:focus {
 }
 
 .top-nav-collapse .navbar-nav .nav-link {
-	color: #333 !important;
+	/* color: #333 !important; */
+	color: var(--section-title) !important;
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
 }
@@ -547,7 +550,7 @@ a.back-to-top:focus {
 }
 
 .indigo {
-	background: #fff;
+	background: var(--background-color);
 }
 
 .menu-bg {
@@ -568,7 +571,8 @@ a.back-to-top:focus {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-	color: #333;
+	/* color: #333; */
+	color: var(--section-title);
 	font-weight: 700;
 	padding: 0 17px;
 	margin-top: 15px;
@@ -823,7 +827,7 @@ a.back-to-top:focus {
   Portfolio Section
    ========================================================================== */
 #portfolios {
-	background: #f2f2f2;
+	background: var(--background-color-secondary);
 }
 
 #portfolios .mix {
@@ -952,7 +956,7 @@ a:not([href]):not([tabindex]):hover {
 
 /* Services Item */
 .services {
-	background: #f0f0f0;
+	background: var(--skills-background);
 }
 
 .services-item {
@@ -986,7 +990,7 @@ a:not([href]):not([tabindex]):hover {
 .services-item .services-content h3 a {
 	font-size: 18px;
 	text-transform: uppercase;
-	color: #666;
+	color: var(--text-color);
 }
 
 .services-item .services-content h3 a:hover {
@@ -1024,8 +1028,8 @@ a:not([href]):not([tabindex]):hover {
 }
 
 .contact-form-area {
-	background: #fff;
-	box-shadow: 0 0 30px #ededed;
+	background: var(--contact-form-background);
+	box-shadow: 0 0 30px var(--contact-form-shadow);
 	padding: 60px 40px;
 }
 
@@ -1044,7 +1048,7 @@ a:not([href]):not([tabindex]):hover {
 	margin: 10px 22px;
 	padding: 3px 55px;
 	position: relative;
-	color: #666;
+	color: var(--text-color);
 }
 
 .footer-right-contact .single-contact p {
@@ -1052,7 +1056,7 @@ a:not([href]):not([tabindex]):hover {
 }
 
 .footer-right-contact .single-contact p a {
-	color: #666;
+	color: var(--text-color);
 }
 
 .footer-right-contact .contact-icon {
