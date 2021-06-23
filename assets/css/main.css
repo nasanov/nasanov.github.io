@@ -461,7 +461,7 @@ a.back-to-top:focus {
 }
 
 .timeline li:first-child:before {
-	border: 0;
+/* 	border: 0; */
 	background: none;
 	position: relative;
 }
@@ -484,7 +484,7 @@ a.back-to-top:focus {
 	background: #fff;
 	display: block;
 	position: absolute;
-	margin-top: 18px;
+/* 	margin-top: 18px; */
 	border-color: #00b4d9 !important;
 }
 
